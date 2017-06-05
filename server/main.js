@@ -12,7 +12,7 @@ const http = require('http').Server(app)
 
 // Route
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('index.html'))
+  res.sendFile(path.resolve('./src/index.html'))
 })
 
 http.listen(app.get('port'), () => {
