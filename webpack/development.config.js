@@ -10,12 +10,14 @@ module.exports = {
     publicPath: '/dist/'
   },
   module: {
-    loaders: [
+    preLoaders: [
       {
         test: /\.js$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
       },
+    ],
+    loaders: [
       {
         test: /\.js$/,
         loaders: ['react-hot','babel'],
