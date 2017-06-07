@@ -1,0 +1,130 @@
+//  sass-lint:disable no-important, no-vendor-prefixes, class-name-format
+
+@import './colors';
+
+:global {
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    &:lang(ko) {
+      font-family: 'Avenir', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Helvetica', 'Arial', 'Malgun Gothic',
+      '맑은고딕', 돋움, Dotum, 'Noto Sans Japanese', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
+    }
+
+    &:lang(ja) {
+      font-family: 'Avenir Next', 'Noto Sans Japanese', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ,
+      'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Helvetica,Arial', 'Malgun Gothic', '맑은고딕', 돋움, Dotum, sans-serif;
+    }
+
+    &:lang(en) {
+      font-family: 'Avenir', 'Avenir Next', 'Helvetica', 'Arial', 'Apple SD Gothic Neo', 'Nanum Barun Gothic',
+      'Malgun Gothic', '맑은고딕', 돋움, Dotum, 'Noto Sans Japanese', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
+    }
+  }
+
+  img {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  * {
+    &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color: $light !important;
+    }
+
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $light !important;
+      opacity: 1;
+    }
+
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $light !important;
+      opacity: 1;
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $light !important;
+    }
+
+    &:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+      color: $light !important;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &::-webkit-contacts-auto-fill-button {
+      opacity: 0;
+    }
+  }
+
+  #main { /*  sass-lint:disable-line no-ids */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .app-wrapper {
+    height: 100%;
+  }
+
+  .scroll {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .full {
+    height: 100%;
+  }
+
+  .layout-box {
+    display: flex;
+
+    &.has-cols {
+      flex-direction: row;
+    }
+
+    &.has-rows {
+      flex-direction: column;
+    }
+  }
+
+  .flex-auto {
+    flex: auto;
+  }
+
+  .layout-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .layout-absolute-full {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+  }
+}

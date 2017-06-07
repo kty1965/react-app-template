@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default () => ({
@@ -10,13 +9,14 @@ export default () => ({
   output: {
     path: path.resolve(__dirname, '../public/dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/dist/',
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
   ],
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         exclude: /(node_modules)/,
         include: path.resolve(__dirname, '../src'),
@@ -25,12 +25,12 @@ export default () => ({
           options: {
             babelrc: true,
             presets: [
-              ['es2015', {modules: false}],
-              'react'
+              ['es2015', { modules: false }],
+              'react',
             ],
             plugins: ['react-hot-loader/babel'],
           },
-        }]
+        }],
       },
       {
         test: /\.(css|sass|scss)$/,
@@ -39,28 +39,33 @@ export default () => ({
           fallback: 'style-loader',
           use: [
             { loader: 'css-loader', query: { modules: true, sourceMaps: true } },
-            { loader: 'sass-loader'},
+            { loader: 'sass-loader' },
           ],
         })
       },
       {
         test: /\.(ttf|eot|svg|mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         query: {
-           useRelativePath: process.env.NODE_ENV === "production"
+          useRelativePath: process.env.NODE_ENV === 'production',
         },
       },
       {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: path.resolve(__dirname, '../src'),
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192',
       },
       {
         test: /\.html$/,
-        loader: "file-loader?name=[path][name].[ext]&context=./src"
+        loader: 'file-loader?name=[path][name].[ext]&context=./src',
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
     ],
   },

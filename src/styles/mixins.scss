@@ -1,0 +1,27 @@
+@import './colors';
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+
+@mixin chSelect-selector($width, $height) {
+  display: flex;
+  width: $width;
+  height: $height;
+  align-items: center;
+  font-size: 15px;
+}
+
+@mixin chSelect-selector-fixed($width, $height) {
+  display: flex;
+  width: $width;
+  height: $height;
+  border: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}

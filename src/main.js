@@ -12,6 +12,9 @@ import App from './app';
 const rMiddleware = routerMiddleware(browserHistory);
 const loggerMiddleware = createLogger();
 
+/* Resources */
+require('./styles/global.scss');
+
 const store = createStore(
   combineReducers({
     routing: routerReducer,
@@ -23,7 +26,7 @@ const store = createStore(
 );
 
 // Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,7 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default () => ({
   devtool: 'eval',
@@ -24,11 +22,12 @@ export default () => ({
     new webpack.NamedModulesPlugin(),
   ],
   module: {
-    rules: [{
-        enforce: "pre",
+    rules: [
+      {
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
       },
       {
         test: /\.js$/,
@@ -39,36 +38,41 @@ export default () => ({
           options: {
             babelrc: true,
             presets: [
-              ['es2015', {modules: false}],
-              'react'
+              ['es2015', { modules: false }],
+              'react',
             ],
             plugins: ['react-hot-loader/babel'],
           },
-        }]
+        }],
       },
       {
         test: /\.(css|sass|scss)$/,
         include: path.resolve(__dirname, '../src'),
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(ttf|eot|svg|mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         query: {
-           useRelativePath: process.env.NODE_ENV === "production"
+          useRelativePath: process.env.NODE_ENV === 'production',
         },
       },
       {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: path.resolve(__dirname, '../src'),
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192',
       },
       {
         test: /\.html$/,
-        loader: "file-loader?name=[path][name].[ext]&context=./src"
+        loader: 'file-loader?name=[path][name].[ext]&context=./src',
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
       },
     ],
   },

@@ -22,7 +22,8 @@
     "development": "npm run webpack-dev-server",
     "production": "webpack --config webpack/production.config.babel.js && node server/entry.js",
     "server": "nodemon server/entry.js",
-    "webpack-dev-server": "webpack-dev-server --config webpack/development.config.babel.js"
+    "webpack-dev-server": "webpack-dev-server --config webpack/development.config.babel.js",
+    "sasslint": "sass-lint -c .sass-lint.yml -v -q"
   },
   "author": "",
   "license": "ISC",
@@ -51,6 +52,7 @@
     "redux-devtools": "^3.4.0",
     "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.5",
+    "sasslint-loader": "0.0.1",
     "style-loader": "^0.18.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.x",
