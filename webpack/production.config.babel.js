@@ -41,7 +41,7 @@ export default () => ({
             { loader: 'css-loader', query: { modules: true, sourceMaps: true } },
             { loader: 'sass-loader' },
           ],
-        })
+        }),
       },
       {
         test: /\.(ttf|eot|svg|mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

@@ -8,14 +8,14 @@ export default () => ({
   output: {
     path: path.resolve(__dirname, '../public/dist'),
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/dist/',
   },
   devServer: {
     inline: true,
     host: '0.0.0.0',
     port: 8080,
     contentBase: path.join(__dirname, '../src'),
-    hot: true
+    hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
