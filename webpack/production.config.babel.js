@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 export default () => ({
   devtool: 'source-map',
   context: path.resolve(__dirname, '../'),
-  entry: './src/main.js',
+  entry: ['babel-polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, '../public/dist'),
     filename: 'bundle.js',
@@ -28,7 +28,7 @@ export default () => ({
               ['es2015', { modules: false }],
               'react',
             ],
-            plugins: ['react-hot-loader/babel'],
+            plugins: ['react-hot-loader/babel', 'transform-decorators-legacy'],
           },
         }],
       },
